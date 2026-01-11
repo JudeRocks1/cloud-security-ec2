@@ -73,10 +73,10 @@ due to its complexity and limited additional learning value.
 ## What I learned
 
  - How AWS enforces least privilege
-How verifying failed actions is used as valuable security data
-How CloudTrail supports event tracking and auditing
-How virtual Linux file system paths/permissions work
-How to safely expose an AWS service to the public
+ - How verifying failed actions is used as valuable security data
+ - How CloudTrail supports event tracking and auditing
+ - How virtual Linux file system paths/permissions work
+ - How to safely expose an AWS service to the public
 
 ## Process Challenges
  - Creating security protocols but not understanding how an attacked would exploit my server if I didn't have them
