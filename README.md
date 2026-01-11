@@ -2,7 +2,7 @@
 
 ##IAM (Identity and Access Management) Security Design
 
-![I am roles](screenshots/IAmReadOnlyRole.png)
+![I am roles](screenshots/1IAmReadOnlyRole.png)
 
  - Created an IAM role with CloudWatchLogsReadOnlyAccess
  - Attached the role directly to the EC2 instance
