@@ -1,6 +1,6 @@
 # cloud-security-ec2
 
-##IAM (Identity and Access Management) Security Design
+## IAM (Identity and Access Management) Security Design
 
 ![I am roles](screenshots/1IAmReadOnlyRole.png)
 
@@ -9,7 +9,7 @@
  - Verified that read actions were allowed and write actions were denied
 
 
-##Network Security (Security Groups)
+## Network Security (Security Groups)
 
 
 ![Security Groups](screenshots/2MyIPInboundRules.png)
@@ -20,7 +20,7 @@
 
 
 
-##CloudTrail Auditing & Log Integrity
+## CloudTrail Auditing & Log Integrity
 
 ![CloudTrail](screenshots/3TrailLog.png)
 
@@ -30,9 +30,9 @@
 
 
 
-##How I Tested My EC2 Server
+## How I Tested My EC2 Server
 
-###IAM Role Testing
+### IAM Role Testing
 aws logs describe-log-groups 
  - Allowed and functional
 aws logs create-log-group --log-group-name TestGroup
@@ -40,13 +40,13 @@ aws logs create-log-group --log-group-name TestGroup
 
 This shows that I have read but not write permissions.
 
-###Security Group Testing
+### Security Group Testing
  - Changed SSH source IP to a random address and tried to connect.
  - This test gave an 'Connection timed out' error and did not allow me to sign in.
 
 The failed connection verifies other IPs may not attempt maliciously connecting with a guessed private key
 
-###CloudTrail Verification
+### CloudTrail Verification
 
 Tested my CloudTrail by finding the IAM role tests previously mentioned.
 
@@ -62,7 +62,7 @@ Verifying a successful log file validation (digest file retrieval and CLI-based 
 due to its complexity and limited additional learning value.
 
 
-##Web Server Deployment
+## Web Server Deployment
 
  - Installed Nginx on Amazon Linux 2023
  - Enabled HTTP traffic in the security group
@@ -70,7 +70,7 @@ due to its complexity and limited additional learning value.
 
 ![Web Server](screenshots/6WorkingServer.png)
 
-##What I learned
+## What I learned
 
  - How AWS enforces least privilege
 How verifying failed actions is used as valuable security data
@@ -78,7 +78,7 @@ How CloudTrail supports event tracking and auditing
 How virtual Linux file system paths/permissions work
 How to safely expose an AWS service to the public
 
-##Process Challenges
+## Process Challenges
  - Creating security protocols but not understanding how an attacked would exploit my server if I didn't have them
  - Thought my instance wasn't running because my AWS region selector wasn't in the region the instance was running in. When I tried to connect there were different security groups in that region which prevented me from connecting, which all led me to believe there was no instance. I fixed this by changing the region to the correct region and changing the security group to allow myself to properly attempt log ins
  - Concerned when connecting to my aws server because PowerShell warns about the authenticity of the host and about permanently adding the public ip to a list of known hosts. (this is actually expected)
