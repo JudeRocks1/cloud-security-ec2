@@ -83,4 +83,6 @@ How to safely expose an AWS service to the public
  - Thought my instance wasn't running because my AWS region selector wasn't in the region the instance was running in. When I tried to connect there were different security groups in that region which prevented me from connecting, which all led me to believe there was no instance. I fixed this by changing the region to the correct region and changing the security group to allow myself to properly attempt log ins
  - Concerned when connecting to my aws server because PowerShell warns about the authenticity of the host and about permanently adding the public ip to a list of known hosts. (this is actually expected)
  - My IAM role not working when trying to use allowed commands "Unable to locate credentials. You can configure credentials by running "aws login"." The issue was the I created the IAM role but did not attach it to my instance.
- - Confusion over where nginx files were located at first. Realized I could actually enter the parent folders outside of /home/ec2-user and see all the other directories that eventually lead to the html files.<img width="1420" height="2765" alt="image" src="https://github.com/user-attachments/assets/a3f37c8a-f9f0-4bc5-a980-5469fda9cce7" />
+ - Confusion over where nginx files were located at first. Realized I could actually enter the parent folders outside of /home/ec2-user and see all the other directories that eventually lead to the html files.
+
+[View Screenshot](https://github.com/user-attachments/assets/a3f37c8a-f9f0-4bc5-a980-5469fda9cce7)
