@@ -2,7 +2,7 @@
 
 ## IAM (Identity and Access Management) Security Design
 
-![I am roles](screenshots/1IAmReadOnlyRole.png)
+![IAM roles](screenshots/1IAmReadOnlyRole.png)
 
  - Created an IAM role with CloudWatchLogsReadOnlyAccess
  - Attached the role directly to the EC2 instance
@@ -16,7 +16,7 @@
 
  - SSH (port 22) restricted to my public IP only
  - HTTP (port 80) opened only after Nginx installation
- - Prevents unauthorized access and automated bot scanning
+ - Restricting SSH access defends against noise from malicious or automated connection attempts, potential SSH vulnerabilities, and leaked keys
 
 
 
@@ -44,7 +44,7 @@ This shows that I have read but not write permissions.
  - Changed SSH source IP to a random address and tried to connect.
  - This test gave an 'Connection timed out' error and did not allow me to sign in.
 
-The failed connection verifies other IPs may not attempt maliciously connecting with a guessed private key
+The failed connection verifies non-whitelisted IPs may not attempt unauthorized SSH access.
 
 ### CloudTrail Verification
 
@@ -79,9 +79,9 @@ due to its complexity and limited additional learning value.
  - How to safely expose an AWS service to the public
 
 ## Process Challenges
- - Creating security protocols but not understanding how an attacked would exploit my server if I didn't have them
- - Thought my instance wasn't running because my AWS region selector wasn't in the region the instance was running in. When I tried to connect there were different security groups in that region which prevented me from connecting, which all led me to believe there was no instance. I fixed this by changing the region to the correct region and changing the security group to allow myself to properly attempt log ins
- - Concerned when connecting to my aws server because PowerShell warns about the authenticity of the host and about permanently adding the public ip to a list of known hosts. (this is actually expected)
+ - Creating security protocols but not understanding how an attacker would exploit my server if I didn't have them
+ - Thought my instance wasn't running because my AWS region selector wasn't in the region the instance was running in. When I tried to connect there were different security groups in that region which prevented me from connecting, which all led me to believe there was no instance. I fixed this by changing the region to the correct region and changing the security group to allow myself to properly attempt logins
+ - Concerned when connecting to my AWS server because PowerShell warns about the authenticity of the host and about permanently adding the public IP to a list of known hosts. (this is actually expected)
  - My IAM role not working when trying to use allowed commands "Unable to locate credentials. You can configure credentials by running "aws login"." The issue was the I created the IAM role but did not attach it to my instance.
  - Confusion over where nginx files were located at first. Realized I could actually enter the parent folders outside of /home/ec2-user and see all the other directories that eventually lead to the html files.
 
