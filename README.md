@@ -68,7 +68,7 @@ due to its complexity and limited additional learning value.
  - Enabled HTTP traffic in the security group
  - Edited default index.html
 
-![Web Server](screenshots/6WorkingServer.png)
+![Web Server](screenshots/6RunningServer.png)
 
 ## What I learned
 
