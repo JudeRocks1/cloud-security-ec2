@@ -1,5 +1,11 @@
 # cloud-security-ec2
-
+Stubbing out new readme before adding backend & API code.
+## Architectural Design
+...
+## Schema Validation
+...
+## Container Orchestration
+...
 ## IAM (Identity and Access Management) Security Design
 
 ![IAM roles](screenshots/1IAmReadOnlyRole.png)
@@ -9,7 +15,7 @@
  - Verified that read actions were allowed and write actions were denied
 
 
-## Network Security (Security Groups)
+### Network Security (Security Groups)
 
 
 ![Security Groups](screenshots/2MyIPInboundRules.png)
@@ -20,7 +26,7 @@
 
 
 
-## CloudTrail Auditing & Log Integrity
+### CloudTrail Auditing & Log Integrity
 
 ![CloudTrail](screenshots/3TrailLog.png)
 
@@ -30,7 +36,7 @@
 
 
 
-## How I Tested My EC2 Server
+### How I Tested My EC2 Server
 
 ### IAM Role Testing
 aws logs describe-log-groups 
@@ -40,13 +46,13 @@ aws logs create-log-group --log-group-name TestGroup
 
 This shows that I have read but not write permissions.
 
-### Security Group Testing
+#### Security Group Testing
  - Changed SSH source IP to a random address and tried to connect.
  - This test gave an 'Connection timed out' error and did not allow me to sign in.
 
 The failed connection verifies non-whitelisted IPs may not attempt unauthorized SSH access.
 
-### CloudTrail Verification
+#### CloudTrail Verification
 
 Tested my CloudTrail by finding the IAM role tests previously mentioned.
 
@@ -62,7 +68,7 @@ Verifying a successful log file validation (digest file retrieval and CLI-based 
 due to its complexity and limited additional learning value.
 
 
-## Web Server Deployment
+### Web Server Deployment
 
  - Installed Nginx on Amazon Linux 2023
  - Enabled HTTP traffic in the security group
