@@ -1,5 +1,15 @@
 # cloud-security-ec2
 Stubbing out new readme before adding backend & API code.
+
+MVP b4 EC2
+Run
+docker-compose up --build
+View
+http://127.0.0.1:8000/docs
+Reset
+docker compose down -v
+
+
 ## Architectural Design
 ...
 ## Schema Validation
