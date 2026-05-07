@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, Base, DBLog
 
@@ -11,8 +11,8 @@ app = FastAPI()
 
 # Contract for data entries
 class SecurityLog(BaseModel):
-    event_id: str
-    severity: str
+    event_id: str = Field(..., min_length=1, max_length=50)
+    severity: str = Field(default="generic", min_length=1, max_length=10)
 
 #helper
 def get_db():
